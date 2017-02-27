@@ -1,0 +1,12 @@
+:root{
+  --appBarHeight: 64px;
+}
+
+.appBar {
+  height: var(--appBarHeight);
+}
+
+.drawer {
+  height: calc(100% - var(--appBarHeight)) !important;
+  top: var(--appBarHeight) !important; 
+}
