@@ -1,0 +1,20 @@
+:root{
+  --appBarHeight: 64px;
+  --drawerWidth: 256px
+}
+
+.appBar {
+  height: var(--appBarHeight);
+}
+
+.drawer {
+  height: calc(100% - var(--appBarHeight)) !important;
+  top: var(--appBarHeight) !important;
+  width: var(--drawerWidth) !!important;
+}
+
+.pageContent {
+  left: var(--drawerWidth);
+  position: fixed;
+  width: calc(100% - var(--drawerWidth));
+}

@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+const { string, node, oneOf } = React.PropTypes
 import { AppBar, Drawer, MenuItem } from 'material-ui';
 import style from './style.css'
 
-export default class StaticLayout extends Component{
+export default class Page extends Component{
+  static propTypes = {
+    children: node,
+  }
+
+  static defaultProps = {
+    children: null,
+  }
+
   render(){
-    console.info(style.drawer)
     return(
       <div className="static_page_content">
         <AppBar className={style.appBar}
@@ -12,9 +20,13 @@ export default class StaticLayout extends Component{
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           />
         <Drawer docked={true} containerClassName={style.drawer}>
-            <MenuItem>Menu Item</MenuItem>
-            <MenuItem>Menu Item 2</MenuItem>
+            <MenuItem>Images</MenuItem>
+            <MenuItem>Containers</MenuItem>
+            <MenuItem>Environments</MenuItem>
         </Drawer>
+        <div className={style.pageContent}>
+          {this.props.children}
+        </div>
       </div>
     )
   }

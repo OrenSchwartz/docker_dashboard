@@ -1,4 +1,6 @@
-import StaticLayout from './StaticLayout'
+import Page from './Page'
+import Table from './Table'
 export {
-  StaticLayout
+  Page,
+  Table
 }
