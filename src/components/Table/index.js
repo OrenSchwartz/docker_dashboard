@@ -15,11 +15,21 @@ export default class Table extends Component {
     columns:[]
   }
 
+  getCellStyle = (index) => {
+    return {
+      style: {
+        textAlign:"center"
+      }
+    }
+  }
+
   render(){
     return(
       <ReactTable
         columns={this.props.columns}
-        data={this.props.data} />
+        data={this.props.data}
+        getProps={this.getCellStyle}
+       />
     )
   }
 }

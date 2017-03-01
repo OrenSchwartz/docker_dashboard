@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
-const { string, node, oneOf } = React.PropTypes
 import { AppBar, Drawer, MenuItem } from 'material-ui';
 import style from './style.css'
+const { string, node, arrayOf, func } = React.PropTypes
 
 export default class Page extends Component{
   static propTypes = {
+    menuItems: arrayOf(string),
     children: node,
+    onClick: func
   }
 
   static defaultProps = {
+    menuItems: [],
     children: null,
+    onClick: (x) => {throw Error("no click handler defined")}
   }
 
   render(){
@@ -20,9 +24,16 @@ export default class Page extends Component{
           iconClassNameRight="muidocs-icon-navigation-expand-more"
           />
         <Drawer docked={true} containerClassName={style.drawer}>
-            <MenuItem>Images</MenuItem>
-            <MenuItem>Containers</MenuItem>
-            <MenuItem>Environments</MenuItem>
+          <div className={style.drawerMenuItems}>
+            {
+              this.props.menuItems.map((x,i) =>
+                <MenuItem
+                 key={ i }
+                 onClick={this.props.onClick.bind(this, i)}>
+                 {x}
+               </MenuItem>)
+            }
+          </div>
         </Drawer>
         <div className={style.pageContent}>
           {this.props.children}

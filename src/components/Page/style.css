@@ -13,6 +13,10 @@
   width: var(--drawerWidth) !!important;
 }
 
+.drawerMenuItems {
+  margin-top: 25px;
+}
+
 .pageContent {
   left: var(--drawerWidth);
   position: fixed;
