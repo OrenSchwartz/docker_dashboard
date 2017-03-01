@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import { Page, Table }  from './components'
-import { MENU_ITEMS } from './consts'
+import { MENU_ITEMS, MENU_ITEMS_ICONS } from './consts'
 import TableColumnTypes from './components/Table/TableColumnTypes'
 import imagesData from './other/data/images'
 
@@ -27,11 +27,12 @@ class App extends Component {
       <div className="App">
         <MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
           <Page
-            menuItems={MENU_ITEMS}
-            onClick={this.handleMenuItemClick.bind(this)}
+            menuItems={ MENU_ITEMS }
+            menuItemsIconElements={ MENU_ITEMS_ICONS }
+            onClick={ this.handleMenuItemClick.bind(this) }
           >
             <Table
-              className= {style.table}
+              className={ style.table }
               data={ imagesData }
               columns={ TableColumnTypes[this.state.currentPage] }/>
           </Page>

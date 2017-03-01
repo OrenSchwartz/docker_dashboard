@@ -6,12 +6,14 @@ const { string, node, arrayOf, func } = React.PropTypes
 export default class Page extends Component{
   static propTypes = {
     menuItems: arrayOf(string),
+    menuItemsIconElements: arrayOf(node),
     children: node,
     onClick: func
   }
 
   static defaultProps = {
     menuItems: [],
+    menuItemsIconElements: [],
     children: null,
     onClick: (x) => {throw Error("no click handler defined")}
   }
@@ -29,6 +31,7 @@ export default class Page extends Component{
               this.props.menuItems.map((x,i) =>
                 <MenuItem
                  key={ i }
+                 leftIcon={this.props.menuItemsIconElements[i]}
                  onClick={this.props.onClick.bind(this, i)}>
                  {x}
                </MenuItem>)
