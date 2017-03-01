@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 function renderStyleColorByState(state){
   const style = {height:"100%", width:"100%"};
-  const val = state ? state.value.toLowerCase() : null
+  const val = state && state.value ? state.value.toLowerCase() : null
   switch (val) {
     case "up":
       return {...style, "background-color": "green"}

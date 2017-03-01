@@ -21,4 +21,5 @@
   left: var(--drawerWidth);
   position: fixed;
   width: calc(100% - var(--drawerWidth));
+  height: calc(100% - var(--appBarHeight));
 }

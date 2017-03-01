@@ -26,6 +26,7 @@ export default class Table extends Component {
   render(){
     return(
       <ReactTable
+        className={style.ReactTable}
         columns={this.props.columns}
         data={this.props.data}
         getProps={this.getCellStyle}
